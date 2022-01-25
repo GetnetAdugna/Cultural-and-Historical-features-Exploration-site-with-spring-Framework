@@ -17,7 +17,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class History{
+public class Content{
 
         @Id
         @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -29,5 +29,7 @@ public class History{
         @Lob
         private byte[] imgData;
         private String yearElapsed;
+        private String contentType;
+        
 }
     
