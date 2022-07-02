@@ -1,5 +1,4 @@
 package com.software.project.Domain;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +24,6 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
 @Data
 @Getter
 @Setter
@@ -35,39 +33,40 @@ import javax.persistence.Entity;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     private String username;
     private String firstName;
     private String lastName;
     private String Email;
-    private String password;
+    private  String password;
     private Boolean isactive;
     private String Roles;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_" + this.Roles));
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_"+this.Roles));
     }
-
     @Override
     public boolean isAccountNonExpired() {
+        // TODO Auto-generated method stub
         return true;
     }
-
     @Override
     public boolean isAccountNonLocked() {
+        // TODO Auto-generated method stub
         return true;
     }
-
     @Override
     public boolean isCredentialsNonExpired() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+    @Override
+    public boolean isEnabled() {
+        // TODO Auto-generated method stub
         return true;
     }
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+ 
 
 }
